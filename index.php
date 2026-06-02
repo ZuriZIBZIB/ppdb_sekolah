@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPDB Sekolah</title>
-</head>
-<body>
-    <p>Dashboard PPDB telah dipindahkan ke <a href="dashboard.html">dashboard.html</a>.</p>
-</body>
-</html>
+<?php
+require_once 'config.php';
+
+// Check if user is already logged in
+if (isset($_SESSION['user_id'])) {
+    // Redirect based on role
+    if ($_SESSION['role'] === 'admin') {
+        header("Location: dashboard.php");
+    } else {
+        header("Location: Formulir/form.php");
+    }
+    exit();
+} else {
+    // Redirect to Beranda (landing page) if not logged in
+    header("Location: Beranda/beranda.php");
+    exit();
+}
+?>

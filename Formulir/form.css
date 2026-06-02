@@ -15,10 +15,13 @@ body{
 
 .container{
   background: white;
-  width: 400px;
+  width: 95%;
+  max-width: 700px;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .container h2{
