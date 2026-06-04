@@ -1,0 +1,501 @@
+/* ============================================
+   Verifikasi Pendaftar — PPDB SMKN 4 Palembang
+   Pure CSS, no JS
+   ============================================ */
+
+:root {
+    --navy:         #1b3f72;
+    --navy-dark:    #112c54;
+    --sky:          #bdd7f5;
+    --sky-dark:     #8bb8e8;
+    --red:          #b91c1c;
+    --red-hover:    #991b1b;
+    --teal:         #0e7490;
+    --teal-hover:   #0c6483;
+    --green:        #0f766e;
+    --amber:        #b45309;
+    --bg:           #eef2f7;
+    --bg-card:      #ffffff;
+    --border:       #d1dce9;
+    --border-light: #e8eef6;
+    --text:         #1e2d40;
+    --text-muted:   #5a7499;
+    --text-light:   #8aa0bb;
+    --radius:       8px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 32px 28px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 20px;
+}
+
+.header-left {
+    border-left: 3px solid var(--sky-dark);
+    padding-left: 16px;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.header p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.logout-btn {
+    display: inline-block;
+    background: var(--red);
+    color: #ffffff;
+    padding: 9px 18px;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: background 0.15s;
+    flex-shrink: 0;
+    border: 1px solid var(--red-hover);
+}
+
+.logout-btn:hover { background: var(--red-hover); }
+
+/* ============================================
+   ALERT MESSAGES
+   ============================================ */
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 16px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-left-width: 4px;
+}
+
+.success {
+    background: #f0fdf4;
+    color: #14532d;
+    border-color: #86efac;
+    border-left-color: var(--green);
+}
+
+.error {
+    background: #fef2f2;
+    color: #991b1b;
+    border-color: #fca5a5;
+    border-left-color: var(--red);
+}
+
+/* ============================================
+   CONTENT CARD
+   ============================================ */
+
+.content-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border-top: 3px solid var(--navy);
+}
+
+.content-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 22px;
+    background: #f7fafd;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.content-card-header h2 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-bottom: 2px solid var(--border);
+}
+
+thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    background: #f7fafd;
+    white-space: nowrap;
+}
+
+thead th:first-child { padding-left: 22px; }
+thead th:last-child  { padding-right: 22px; text-align: center; }
+
+tbody td {
+    padding: 13px 16px;
+    font-size: 13px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+}
+
+tbody td:first-child {
+    padding-left: 22px;
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+    width: 48px;
+}
+
+tbody td:last-child {
+    padding-right: 22px;
+    text-align: center;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover td {
+    background: #f3f8fe;
+}
+
+tbody tr:nth-child(even) td {
+    background: #fafcff;
+}
+
+tbody tr:nth-child(even):hover td {
+    background: #eef5fc;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fffbeb;
+    color: #92400e;
+    border-color: #fcd34d;
+}
+
+.status-approved {
+    background: #f0fdf4;
+    color: #14532d;
+    border-color: #6ee7b7;
+}
+
+.status-rejected {
+    background: #fef2f2;
+    color: #991b1b;
+    border-color: #fca5a5;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.btn-sm {
+    padding: 5px 13px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-teal {
+    background: var(--teal);
+    color: #ffffff;
+    border: 1px solid var(--teal-hover);
+}
+
+.btn-teal:hover { background: var(--teal-hover); }
+
+.btn-navy {
+    background: var(--navy);
+    color: #ffffff;
+    border: 1px solid var(--navy-dark);
+}
+
+.btn-navy:hover { background: var(--navy-dark); }
+
+.btn-ghost {
+    background: #f1f5f9;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    background: #e2e8f0;
+    color: var(--text);
+}
+
+/* ============================================
+   BACK LINK
+   ============================================ */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 22px;
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+}
+
+.back-link:hover {
+    border-bottom-color: var(--navy);
+}
+
+/* ============================================
+   CSS-ONLY MODAL  (:target)
+   Open : <a href="#modal-{id}">
+   Close: <a href="#"> inside .modal-overlay or .modal-close
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 24, 50, 0.5);
+}
+
+.modal-box {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--teal);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.modal-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+}
+
+.modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border-light);
+    transition: background 0.15s, color 0.15s;
+}
+
+.modal-close:hover {
+    background: #f1f5f9;
+    color: var(--text);
+}
+
+/* ---- Form ---- */
+
+.modal-body { padding: 22px 24px; }
+
+.form-group { margin-bottom: 18px; }
+
+.form-group:last-child { margin-bottom: 0; }
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text);
+    background: #ffffff;
+    transition: border-color 0.15s;
+    appearance: auto;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    border-left-width: 3px;
+}
+
+.form-group input[readonly] {
+    background: #f7fafd;
+    color: var(--text-muted);
+    cursor: default;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 88px;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    background: #f7fafd;
+    border-top: 1px solid var(--border-light);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body { padding: 18px 14px; }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logout-btn { align-self: flex-start; }
+
+    table { min-width: 660px; }
+
+    .modal-box {
+        width: 100%;
+        max-width: 100%;
+        border-radius: var(--radius) var(--radius) 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 85vh;
+    }
+
+    .modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+}

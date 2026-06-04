@@ -1,0 +1,417 @@
+
+
+:root {
+    --navy:      #1b3f72;
+    --navy-dark: #112c54;
+    --sky-dark:  #8bb8e8;
+    --bg:        #eef2f7;
+    --bg-card:   #ffffff;
+    --border:    #d1dce9;
+    --border-lt: #e8eef6;
+    --text:      #1e2d40;
+    --muted:     #5a7499;
+    --light:     #8aa0bb;
+    --radius:    8px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--bg);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 780px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    background: var(--navy);
+    padding: 18px 24px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px solid var(--sky-dark);
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.header > div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.header-btn {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+}
+
+.header-btn-edit {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.header-btn-edit:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.header-btn-logout {
+    background: #b91c1c;
+    color: #ffffff;
+    border: 1px solid #991b1b;
+}
+
+.header-btn-logout:hover {
+    background: #991b1b;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+    background: var(--bg-card);
+    padding: 24px 28px;
+    margin-bottom: 2px;
+    border-left: 3px solid var(--navy);
+}
+
+.card:last-of-type {
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-bottom: 0;
+}
+
+.card h2 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-lt);
+}
+
+/* ============================================
+   INFO TABLE
+   ============================================ */
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table tr {
+    border-bottom: 1px solid var(--border-lt);
+}
+
+.info-table tr:last-child {
+    border-bottom: none;
+}
+
+.info-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    vertical-align: top;
+}
+
+.info-table td:first-child {
+    font-weight: 600;
+    color: var(--muted);
+    width: 34%;
+    font-size: 12px;
+}
+
+.info-table td:last-child {
+    color: var(--text);
+}
+
+/* ============================================
+   STATUS BOX — warna per status
+   ============================================ */
+
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 22px;
+    border: 1.5px solid transparent;
+    border-left-width: 5px;
+}
+
+/* Dot indikator */
+.status-box::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 5px;
+}
+
+.status-label {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.status-description {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* --- Belum Diverifikasi (abu-abu) --- */
+.status-belum-verifikasi {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    border-left-color: #94a3b8;
+}
+.status-belum-verifikasi::before        { background: #94a3b8; }
+.status-belum-verifikasi .status-label  { color: #475569; }
+.status-belum-verifikasi .status-description { color: #64748b; }
+
+/* --- Terdaftar (biru) --- */
+.status-terdaftar {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    border-left-color: #3b82f6;
+}
+.status-terdaftar::before        { background: #3b82f6; }
+.status-terdaftar .status-label  { color: #1d4ed8; }
+.status-terdaftar .status-description { color: #3b5ca0; }
+
+/* --- Lolos Administrasi (teal) --- */
+.status-lolos-administrasi {
+    background: #f0fdfa;
+    border-color: #99f6e4;
+    border-left-color: #0d9488;
+}
+.status-lolos-administrasi::before        { background: #0d9488; }
+.status-lolos-administrasi .status-label  { color: #0f766e; }
+.status-lolos-administrasi .status-description { color: #2c7a74; }
+
+/* --- Lolos Tes (hijau) --- */
+.status-lolos-tes {
+    background: #f0fdf4;
+    border-color: #86efac;
+    border-left-color: #16a34a;
+}
+.status-lolos-tes::before        { background: #16a34a; }
+.status-lolos-tes .status-label  { color: #15803d; }
+.status-lolos-tes .status-description { color: #2d6a4a; }
+
+/* --- Diterima (hijau emerald — paling menonjol) --- */
+.status-diterima {
+    background: #ecfdf5;
+    border-color: #6ee7b7;
+    border-left-color: #059669;
+}
+.status-diterima::before        { background: #059669; }
+.status-diterima .status-label  { color: #065f46; font-size: 16px; }
+.status-diterima .status-description { color: #047857; }
+
+/* --- Tidak Diterima (merah) --- */
+.status-ditolak {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    border-left-color: #dc2626;
+}
+.status-ditolak::before        { background: #dc2626; }
+.status-ditolak .status-label  { color: #991b1b; }
+.status-ditolak .status-description { color: #b45454; }
+
+/* ============================================
+   EDIT LINK
+   ============================================ */
+
+.edit-link {
+    display: inline-block;
+    background: var(--navy);
+    color: #ffffff;
+    padding: 9px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--navy-dark);
+    transition: background 0.15s;
+}
+
+.edit-link:hover {
+    background: var(--navy-dark);
+}
+
+/* ============================================
+   NO DATA
+   ============================================ */
+
+.no-data {
+    background: #fffbeb;
+    border: 1.5px solid #fcd34d;
+    border-left: 4px solid #f59e0b;
+    padding: 22px 20px;
+    border-radius: var(--radius);
+    color: #78350f;
+    text-align: center;
+}
+
+.no-data p {
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+.timeline {
+    margin-top: 6px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-lt);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+/* Lingkaran step */
+.timeline-item::before {
+    content: attr(data-step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: #f7fafd;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--light);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Tahap aktif — biru */
+.timeline-item.active::before {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* Tahap selesai — centang navy */
+.timeline-item.done::before {
+    content: '✓';
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #ffffff;
+}
+
+/* Tahap aktif sekaligus selesai (step final diterima) — centang hijau */
+.timeline-item.active.done::before {
+    content: '✓';
+    background: #059669;
+    border-color: #059669;
+    color: #ffffff;
+}
+
+.timeline-content h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 2px;
+}
+
+.timeline-content p {
+    font-size: 12px;
+    color: var(--light);
+}
+
+.timeline-item.active .timeline-content h4,
+.timeline-item.done   .timeline-content h4 {
+    color: var(--text);
+}
+
+.timeline-item.active .timeline-content p,
+.timeline-item.done   .timeline-content p {
+    color: var(--muted);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 520px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 0;
+    }
+
+    .card {
+        padding: 20px 16px;
+    }
+
+    .info-table td:first-child {
+        width: 40%;
+    }
+}

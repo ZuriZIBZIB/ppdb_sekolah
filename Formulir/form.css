@@ -1,73 +1,335 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    padding-top: 30px;
+}
+
+.container {
+    background: white;*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  background: linear-gradient(to right, skyblue, royalblue);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#eef4ff,#f8fbff);
+    min-height:100vh;
+    padding:40px 20px;
 }
 
 .container{
-  background: white;
-  width: 95%;
-  max-width: 700px;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  max-height: 90vh;
-  overflow-y: auto;
+    max-width:850px;
+    margin:auto;
+    background:#fff;
+    border-radius:16px;
+    padding:35px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
-.container h2{
-  text-align: center;
-  color: royalblue;
-  margin-bottom: 20px;
+.logout-link{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.logout-link a{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.logout-link a:first-child{
+    background:#2563eb;
+    color:#fff;
+}
+
+.logout-link a:last-child{
+    background:#dc2626;
+    color:#fff;
+}
+
+.logout-link a:hover{
+    transform:translateY(-2px);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:10px;
+    color:#1e3a8a;
+    font-size:28px;
+}
+
+p{
+    margin-bottom:25px;
+}
+
+form{
+    display:grid;
+    gap:18px;
 }
 
 .input-box{
-  margin-bottom: 15px;
+    display:flex;
+    flex-direction:column;
 }
 
 .input-box label{
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#334155;
 }
 
 .input-box input,
 .input-box select,
 .input-box textarea{
-  width: 100%;
-  padding: 10px;
-  border: 2px solid skyblue;
-  border-radius: 8px;
-  outline: none;
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #dbe2ea;
+    border-radius:10px;
+    font-size:14px;
+    transition:.25s;
+    background:#fafcff;
 }
 
 .input-box textarea{
-  resize: none;
-  height: 80px;
+    min-height:120px;
+    resize:vertical;
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+    background:#fff;
 }
 
 button{
-  width: 100%;
-  padding: 12px;
-  background: royalblue;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
 }
 
 button:hover{
-  background: deepskyblue;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+}
+
+.error-message{
+    background:#fee2e2;
+    color:#991b1b;
+    border:1px solid #fecaca;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.success-message{
+    background:#dcfce7;
+    color:#166534;
+    border:1px solid #bbf7d0;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:25px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    .logout-link{
+        flex-direction:column;
+    }
+
+    .logout-link a{
+        text-align:center;
+    }
+
+}
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.logout-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.logout-link a {
+    color: #0052a3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.logout-link a:hover {
+    text-decoration: underline;
+}
+
+.container h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #003d82;
+    margin-bottom: 8px;
+}
+
+.container > p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c33;
+    font-size: 13px;
+}
+
+.success-message {
+    background-color: #efe;
+    color: #3a3;
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3a3;
+    font-size: 13px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus {
+    outline: none;
+    border-color: #0052a3;
+    box-shadow: 0 0 0 3px rgba(0, 82, 163, 0.05);
+}
+
+.input-box input::placeholder,
+.input-box textarea::placeholder {
+    color: #999;
+}
+
+.input-box textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    width: 100%;
+    padding: 11px;
+    background-color: #0052a3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #003d82;
+}
+
+button:active {
+    background-color: #002654;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 25px;
+    }
+
+    .container h2 {
+        font-size: 22px;
+    }
+
+    .logout-link {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logout-link a {
+        display: block;
+    }
 }
